@@ -1,0 +1,14 @@
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\bin\Debug\netcoreapp2.1\DiceRoller.deps.json
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\bin\Debug\netcoreapp2.1\DiceRoller.runtimeconfig.json
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\bin\Debug\netcoreapp2.1\DiceRoller.runtimeconfig.dev.json
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\bin\Debug\netcoreapp2.1\DiceRoller.dll
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.csprojAssemblyReference.cache
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.csproj.CoreCompileInputs.cache
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.RazorAssemblyInfo.cache
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.RazorAssemblyInfo.cs
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.AssemblyInfoInputs.cache
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.AssemblyInfo.cs
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.RazorTargetAssemblyInfo.cache
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\bin\Debug\netcoreapp2.1\DiceRoller.pdb
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.dll
+c:\users\sdguser\source\repos\DiceRoller\DiceRoller\obj\Debug\netcoreapp2.1\DiceRoller.pdb
