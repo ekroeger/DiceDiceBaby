@@ -63,7 +63,7 @@ namespace DiceRoller.Util
                     var sides = Int32.Parse(subElements[1]);
 
                     var roll = new Roll(quantity, sides);
-                    set.AddRollAction(roll);
+                    set.SetRoll(roll);
                 }
             }
 
@@ -96,7 +96,7 @@ namespace DiceRoller.Util
 
                 if (!rollSet.Equals(sets.Last()))
                 {
-                    sb.Append(" |");
+                    sb.Append(" | ");
                 }
             }
 

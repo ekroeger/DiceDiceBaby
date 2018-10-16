@@ -6,11 +6,9 @@ using System.Threading.Tasks;
 
 namespace DiceRoller.Models
 {
-    public class Roll : RollAction
+    public class Roll
     {
-        public List<Die> Dice { get; }
-
-        public override bool IsReducer { get { return false; } }
+        private List<Die> Dice;
 
         public Roll(int quantity, int sides)
         {
@@ -29,7 +27,7 @@ namespace DiceRoller.Models
             }
         }
         
-        public override List<int> Execute(List<int> values, ref StringBuilder output)
+        public List<int> Execute()
         {
             var list = new List<int>();
             
@@ -37,9 +35,6 @@ namespace DiceRoller.Models
             {
                 list.Add(die.Roll());
             }
-
-            output.Append(" Roll: ");
-            output.Append(String.Join(',', list));
 
             return list;
         }

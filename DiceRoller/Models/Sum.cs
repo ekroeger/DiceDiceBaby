@@ -8,7 +8,7 @@ namespace DiceRoller.Models
 {
     public class Sum : RollAction
     {
-        public override bool IsReducer { get { return true; } }
+        public override bool IsSum { get { return true; } }
 
         public override List<int> Execute(List<int> values, ref StringBuilder output)
         {
