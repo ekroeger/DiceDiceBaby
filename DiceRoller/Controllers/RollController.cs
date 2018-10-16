@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DiceRoller.Util;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,35 +13,12 @@ namespace DiceRoller.Controllers
     public class RollController : ControllerBase
     {
         // GET: api/Roll
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("{input}")]
+        public string Get(string input)
         {
-            return new string[] { "value1", "value2" };
-        }
-
-        // GET: api/Roll/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
-
-        // POST: api/Roll
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
-
-        // PUT: api/Roll/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
-        {
-        }
-
-        // DELETE: api/ApiWithActions/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            var rollSets = RollUtil.ProcessInput(input);
+            var result = RollUtil.ExecuteResults(rollSets);
+            return result;
         }
     }
 }

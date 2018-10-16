@@ -1,11 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace DiceRoller.Models
 {
-    public class RollAction
+    public abstract class RollAction
     {
+        public abstract bool IsReducer { get; }
+        public abstract List<int> Execute(List<int> values, ref StringBuilder output);
     }
 }

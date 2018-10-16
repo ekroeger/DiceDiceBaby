@@ -10,10 +10,19 @@ namespace DiceRoller.Models
         public int Sides { get; }
         public Die(int sides)
         {
-            if(sides > 0)
+            if(sides > 1)
             {
                 this.Sides = sides;
+            } else
+            {
+                throw new Exception("Cannot create a die with less than 2 sides.");
             }
+        }
+
+        public int Roll()
+        {
+            var rand = new Random();
+            return rand.Next(1, this.Sides);
         }
     }
 }

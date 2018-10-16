@@ -12,7 +12,7 @@
     "IIS Express": {
       "commandName": "IISExpress",
       "launchBrowser": true,
-      "launchUrl": "api/values",
+      "launchUrl": "api/Roll/4d10",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
