@@ -8,24 +8,17 @@ namespace DiceRoller.Models
 {
     public class RollSet
     {
-        private Queue<RollAction> RollActions;
-
         private Roll Roll;
+        public bool hasSum;
+        public bool hasAdvantage;
+        public bool hasDisadvantage;
 
         public RollSet()
         {
-            this.RollActions = new Queue<RollAction>();
+            this.hasSum = false;
+            this.hasAdvantage = false;
+            this.hasDisadvantage = false;
             this.Roll = null;
-        }
-
-        public void AddRollAction(RollAction action)
-        {
-            if(this.RollActions.Count == 2)
-            {
-                throw new Exception("Only sum and one advantage or disadvantage allowed per roll.");
-            }
-
-            this.RollActions.Enqueue(action);
         }
 
         public void SetRoll(Roll roll)
@@ -46,28 +39,41 @@ namespace DiceRoller.Models
             }
 
             var result = this.Roll.Execute();
-            RollAction sum = null;
             StringBuilder sb = new StringBuilder();
 
             sb.Append("Roll: ");
             sb.Append(String.Join(',', result));
 
-
-            foreach(var action in this.RollActions)
+            if (hasAdvantage)
             {
-                //sum needs to be executed last
-                if (action.IsSum)
-                {
-                    sum = action;
-                    continue;
-                }
+                var min = result.Min();
+                result.Remove(min);
 
-                result = action.Execute(result, ref sb);
+                sb.Append(" Dropped: ");
+                sb.Append(min);
+                sb.Append(" => ");
+                sb.Append(String.Join(',', result));
             }
 
-            if(sum != null)
+            if (hasDisadvantage)
             {
-                result = sum.Execute(result, ref sb);
+                var max = result.Max();
+                result.Remove(max);
+
+                sb.Append(" Dropped: ");
+                sb.Append(max);
+                sb.Append(" => ");
+                sb.Append(String.Join(',', result));
+            }
+
+            if (hasSum)
+            {
+                var sum = result.Sum();
+
+                sb.Append(" => Sum: ");
+                sb.Append(sum);
+
+                result = new List<int> { sum };
             }
 
             return new Tuple<List<int>, string>(result, sb.ToString());

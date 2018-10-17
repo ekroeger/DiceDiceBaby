@@ -30,10 +30,11 @@ namespace DiceRoller.Models
         public List<int> Execute()
         {
             var list = new List<int>();
+            var generator = new Random();
             
             foreach(Die die in this.Dice)
             {
-                list.Add(die.Roll());
+                list.Add(die.Roll(generator));
             }
 
             return list;

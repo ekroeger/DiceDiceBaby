@@ -14,27 +14,37 @@ namespace DiceRoller.Util
             return Constants.Actions.Contains(element);
         }
 
-        public static RollAction ParseAction(string action)
+        public static void SetAction(string action, ref RollSet rollSet)
         {
             switch(action)
             {
                 case Constants.Sum:
-                    return new Sum();
+                    rollSet.hasSum = true;
+                    break;
 
                 case Constants.Advantage:
-                    return new Advantage();
+                    if (rollSet.hasDisadvantage)
+                    {
+                        throw new Exception("Cannot have both advantage and disadvantage.");
+                    }
+
+                    rollSet.hasAdvantage = true;
+                    break;
 
                 case Constants.Disadvantage:
-                    return new Disadvantage();
+                    if (rollSet.hasAdvantage)
+                    {
+                        throw new Exception("Cannot have both advantage and disadvantage.");
+                    }
 
-                default:
-                    return null;
+                    rollSet.hasDisadvantage = true;
+                    break;
             }
         }
 
         public static RollSet CreateRollSetFromInput(string input)
         {
-            string[] elements = input.Trim().Split(' ');
+            string[] elements = input.ToLower().Trim().Split(' ');
 
             RollSet set = new RollSet();
 
@@ -42,8 +52,7 @@ namespace DiceRoller.Util
             {
                 if (IsAction(element))
                 {
-                    var action = ParseAction(element);
-                    set.AddRollAction(action);
+                    SetAction(element, ref set);
                 } else
                 {
                     if (!element.Contains('d'))

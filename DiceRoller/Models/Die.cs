@@ -19,9 +19,8 @@ namespace DiceRoller.Models
             }
         }
 
-        public int Roll()
+        public int Roll(Random rand)
         {
-            var rand = new Random();
             return rand.Next(1, this.Sides);
         }
     }
